@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+#topic {
+  text-align: center;
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 45px;
+  font-weight: 300;
+  text-shadow: 2px 2px 2px;
+  margin-bottom: 13px;
+}
+#container {
+  background-color: aliceblue;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgb(41, 37, 37); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* position: absolute;
+    top: 50%; */
+  padding: 17px 2px;
+}
+.calculator {
+  background-color: #3a4452;
+  padding: 20px;
+  border-radius: 10px;
+}
+#equal {
+  width: 1450px;
+}
+.calculator form input {
+  border: 0;
+  outline: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.2);
+  background: transparent;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  margin: 10px;
+}
+
+input:hover {
+  transform: scale(1.05);
+}
+
+#display {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 0;
+}
+#display input {
+  text-align: right;
+  flex: 1;
+  font-size: 45px;
+  box-shadow: none;
+}
+form input.equal {
+  width: 145px;
+  color: #33ffd8;
+}
+form input.operator {
+  color: #33ffd8;
+}

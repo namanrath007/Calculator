@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.js" integrity="sha512-BbVEDjbqdN3Eow8+empLMrJlxXRj5nEitiCAK5A1pUr66+jLVejo3PmjIaucRnjlB0P9R3rBUs3g5jXc8ti+fQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      function backspace() {
+        let display = document.getElementById("display");
+        display.value = display.value.slice(0, -1);
+    }
+    
+    function calculate() {
+        let display = document.getElementById("display");
+        let expression = display.value;
+        let result;
+    
+        try {
+            // Convert trigonometric function inputs from degrees to radians
+            expression = expression.replace(/sin\(/g, 'sin(' + Math.PI / 180 + '*');
+            expression = expression.replace(/cos\(/g, 'cos(' + Math.PI / 180 + '*');
+            expression = expression.replace(/tan\(/g, 'tan(' + Math.PI / 180 + '*');
+    
+            result = math.evaluate(expression);
+            display.value = result;
+        } catch (error) {
+            display.value = "Error";
+        }
+    }
+    
+    function squareRoot() {
+        let display = document.getElementById("display");
+        display.value += "sqrt(";
+    }
+    
+    function base10Log() {
+        let display = document.getElementById("display");
+        display.value += "log(";
+    }
+    
+    function pi() {
+        let display = document.getElementById("display");
+        display.value += "pi";
+    }
+    
+    function e() {
+        let display = document.getElementById("display");
+        display.value += "e";
+    }
+    
+    function power() {
+        let display = document.getElementById("display");
+        display.value += "^(";
+    }
+    </script>
+
+  </head>
+
+  <body>
+
+    
+    <div id="container">
+      <div id="topic">CALCULATOR</div>
+      <div class="calculator">
+        <form>
+          <div id="display">
+            <input type="text" name="display" />
+          </div>
+          <div id="a0">
+            <input
+              type="button"
+              value="AC"
+              onclick="display.value='' "
+              class="operator"
+            />
+            <input
+              type="button"
+              value="DE"
+              onclick="display.value= display.value.toString().slice(0,-1)"
+              class="operator"
+            />
+            <input
+              type="button"
+              value="."
+              onclick="display.value+='.' "
+              class="operator"
+            />
+            <input
+              type="button"
+              value="%"
+              onclick="display.value+='%' "
+              class="operator"
+            />
+            <input
+              type="button"
+              value="ln2" 
+              onclick="display.value += Math.LN2"
+              class="operator"
+            />
+          </div>
+          <div id="a1">
+            <input
+              type="button"
+              value="sin"
+              onclick="display.value += 'sin('"
+              class="operator"
+            />
+            <input
+              type="button"
+              value="^"
+              onclick="power()"
+              class="operator"
+            />
+            <input
+              type="button"
+              value="sqrt"
+              onclick="squareRoot()"
+              class="operator"
+            />
+            <input
+              type="button"
+              value="3√"
+              onclick="display.value+='3√' "
+              class="operator"
+            />
+            <input
+              type="button"
+              value="/"
+              onclick="display.value+='/' "
+              class="operator"
+            />
+          </div>
+          <div id="a2">
+            <input
+              type="button"
+              value="cos"
+              onclick="display.value += 'cos('"
+              class="operator"
+            />
+            <input
+              type="button"
+              value="7"
+              onclick="display.value+='7' "
+              class="operator"
+            />
+            <input
+              type="button"
+              value="8"
+              onclick="display.value+='8' "
+              class="operator"
+            />
+            <input
+              type="button"
+              value="9"
+              onclick="display.value+='9' "
+              class="operator"
+            />
+            <input
+              type="button"
+              value="*"
+              onclick="display.value+='*' "
+              class="operator"
+            />
+          </div>
+          <div id="a3">
+            <input
+              type="button"
+              value="tan"
+              onclick="display.value += 'tan('"
+              class="operator"
+            />
+            <input
+              type="button"
+              value="4"
+              onclick="display.value+='4' "
+              class="operator"
+            />
+            <input
+              type="button"
+              value="5"
+              onclick="display.value+='5' "
+              class="operator"
+            />
+            <input
+              type="button"
+              value="6"
+              onclick="display.value+='6' "
+              class="operator"
+            />
+            <input
+              type="button"
+              value="-"
+              onclick="display.value+='-' "
+              class="operator"
+            />
+          </div>
+          <div id="a4">
+            <div id="a7">
+              <input
+                type="button"
+                value="log10"
+                onclick="base10Log()"
+                class="operator"
+              />
+            
+            <input
+              type="button"
+              value="1"
+              onclick="display.value+='1' "
+              class="operator"
+            />
+            <input
+              type="button"
+              value="2"
+              onclick="display.value+='2' "
+              class="operator"
+            />
+            <input
+              type="button"
+              value="3"
+              onclick="display.value+='3' "
+              class="operator"
+            />
+            <input
+              type="button"
+              value="+"
+              onclick="display.value+='+' "
+              class="operator"
+            />
+          </div>
+          
+            <input
+              type="button"
+              value="("
+              onclick="display.value+='(' "
+              class="operator"
+            />
+            <input
+              type="button"
+              value=")"
+              onclick="display.value+=')' "
+              class="operator"
+            />
+            <input
+              type="button"
+              value="0"
+              onclick="display.value+='0' "
+              class="operator"
+            />
+            <input
+              type="button"
+              value="="
+              class="equal"
+              onclick="display.value = eval(display.value)"
+              input type="button" value="=" onclick="calculate()"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
